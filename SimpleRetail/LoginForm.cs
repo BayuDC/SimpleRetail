@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleRetail {
-    public partial class MainForm : Form {
-        public MainForm() {
+    public partial class LoginForm : Form {
+        public LoginForm() {
             InitializeComponent();
         }
 
