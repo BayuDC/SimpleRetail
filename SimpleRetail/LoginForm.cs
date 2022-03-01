@@ -10,12 +10,29 @@ using System.Windows.Forms;
 
 namespace SimpleRetail {
     public partial class LoginForm : Form {
+
+        private readonly Database _db;
         public LoginForm() {
             InitializeComponent();
+            _db = new Database();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e) {
+        private void BtnLogin_Click(object sender, EventArgs e) {
 
+            var employee = _db.Employees.FirstOrDefault(e => e.Email == txtEmail.Text);
+
+            if (employee == null) {
+                MessageBox.Show("Email not found", "Login failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(employee.Password != txtPassword.Text) {
+                MessageBox.Show("Incorrect Password", "Login failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var mainForm = new MainForm(() => this.Close());
+            mainForm.Show();
+            this.Hide();
         }
     }
 }
