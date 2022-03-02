@@ -66,16 +66,18 @@ namespace SimpleRetail.Forms {
             this.grpProduct.TabIndex = 0;
             this.grpProduct.TabStop = false;
             this.grpProduct.Text = "Product";
+            this.grpProduct.EnabledChanged += new System.EventHandler(this.GrpProduct_EnabledChanged);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancel.Location = new System.Drawing.Point(225, 218);
+            this.btnCancel.Location = new System.Drawing.Point(219, 218);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 40);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnSave
             // 
@@ -83,21 +85,23 @@ namespace SimpleRetail.Forms {
             this.btnSave.Location = new System.Drawing.Point(6, 218);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 40);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // cmbSupplier
             // 
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(100, 183);
+            this.cmbSupplier.Location = new System.Drawing.Point(94, 183);
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(200, 29);
             this.cmbSupplier.TabIndex = 9;
             // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(100, 148);
+            this.txtStock.Location = new System.Drawing.Point(94, 148);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(200, 29);
             this.txtStock.TabIndex = 8;
@@ -122,14 +126,14 @@ namespace SimpleRetail.Forms {
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(100, 113);
+            this.txtPrice.Location = new System.Drawing.Point(94, 113);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 29);
             this.txtPrice.TabIndex = 7;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(100, 78);
+            this.txtName.Location = new System.Drawing.Point(94, 78);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 29);
             this.txtName.TabIndex = 6;
@@ -145,8 +149,9 @@ namespace SimpleRetail.Forms {
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(100, 43);
+            this.txtId.Location = new System.Drawing.Point(94, 43);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(200, 29);
             this.txtId.TabIndex = 5;
             // 
@@ -203,6 +208,7 @@ namespace SimpleRetail.Forms {
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -213,6 +219,7 @@ namespace SimpleRetail.Forms {
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ProductForm
             // 
@@ -239,7 +246,6 @@ namespace SimpleRetail.Forms {
         #endregion
 
         private System.Windows.Forms.GroupBox grpProduct;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbSupplier;
         private System.Windows.Forms.TextBox txtStock;
@@ -255,5 +261,6 @@ namespace SimpleRetail.Forms {
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
