@@ -8,12 +8,27 @@ using System.Windows.Forms;
 
 namespace SimpleRetail {
     public partial class MainForm : Form {
-        private readonly Action _close;
-        public MainForm(Action close) {
+        private readonly Database _db;
+        private readonly LoginForm _loginForm;
+        public MainForm(Database db, LoginForm loginForm) {
             InitializeComponent();
-            _close = close;
+            _loginForm = loginForm;
+            _db = db;
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => _close();
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+            if (_loginForm.Visible) return;
+
+            _loginForm.Close();
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e) {
+            _loginForm.Close();
+        }
+
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e) {
+            _loginForm.Show();
+            this.Close();
+        }
     }
 }

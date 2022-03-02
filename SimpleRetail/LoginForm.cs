@@ -18,7 +18,6 @@ namespace SimpleRetail {
         }
 
         private void BtnLogin_Click(object sender, EventArgs e) {
-
             var employee = _db.Employees.FirstOrDefault(e => e.Email == txtEmail.Text);
 
             if (employee == null) {
@@ -30,8 +29,9 @@ namespace SimpleRetail {
                 return;
             }
 
-            var mainForm = new MainForm(() => this.Close());
-            mainForm.Show();
+            txtEmail.Text = txtPassword.Text = string.Empty;
+
+            (new MainForm(_db, this)).Show();
             this.Hide();
         }
     }
