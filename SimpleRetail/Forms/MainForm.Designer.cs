@@ -1,5 +1,5 @@
 ﻿
-namespace SimpleRetail {
+namespace SimpleRetail.Forms {
     partial class MainForm {
         /// <summary>
         /// Required designer variable.

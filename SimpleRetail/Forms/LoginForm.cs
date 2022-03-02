@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SimpleRetail {
+namespace SimpleRetail.Forms {
     public partial class LoginForm : Form {
 
         private readonly Database _db;

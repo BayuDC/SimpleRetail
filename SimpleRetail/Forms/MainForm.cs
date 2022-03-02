@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SimpleRetail {
+namespace SimpleRetail.Forms {
     public partial class MainForm : Form {
         private readonly Database _db;
         private readonly LoginForm _loginForm;

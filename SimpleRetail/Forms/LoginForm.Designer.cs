@@ -1,5 +1,5 @@
 ﻿
-namespace SimpleRetail {
+namespace SimpleRetail.Forms {
     partial class LoginForm {
         /// <summary>
         ///  Required designer variable.
