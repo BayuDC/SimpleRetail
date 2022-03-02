@@ -8,6 +8,7 @@ using SimpleRetail.Models;
 namespace SimpleRetail {
     public partial class Database : DbContext {
         private readonly string _connectionString = "Server=localhost;Database=SimpleRetail;Trusted_Connection=True";
+
         public Database() { }
 
         public Database(DbContextOptions<Database> options)
@@ -29,6 +30,10 @@ namespace SimpleRetail {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Employee>(entity => {
+                entity.Property(e => e.Id)
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -51,12 +56,19 @@ namespace SimpleRetail {
             });
 
             modelBuilder.Entity<Product>(entity => {
+                entity.Property(e => e.Id)
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Price).HasColumnType("money");
+                entity.Property(e => e.SupplierId)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.Products)
@@ -66,6 +78,10 @@ namespace SimpleRetail {
             });
 
             modelBuilder.Entity<Supplier>(entity => {
+                entity.Property(e => e.Id)
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -73,7 +89,16 @@ namespace SimpleRetail {
             });
 
             modelBuilder.Entity<Transaction>(entity => {
+                entity.Property(e => e.Id)
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.EmployeeId)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.Transactions)
@@ -85,11 +110,19 @@ namespace SimpleRetail {
             modelBuilder.Entity<TransactionProduct>(entity => {
                 entity.HasNoKey();
 
-                entity.Property(e => e.Price).HasColumnType("money");
+                entity.Property(e => e.ProductId)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.Prodcut)
+                entity.Property(e => e.TransactionId)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Product)
                     .WithMany()
-                    .HasForeignKey(d => d.ProdcutId)
+                    .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TransactionProducts_Products");
 
