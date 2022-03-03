@@ -8,8 +8,8 @@ using SimpleRetail.Models;
 
 namespace SimpleRetail.Forms {
     public partial class ProductForm : Form {
-        private readonly Database _db;
 
+        private readonly Database _db;
         private enum Mode { None, Add, Edit }
         private Mode _mode;
 
@@ -46,7 +46,7 @@ namespace SimpleRetail.Forms {
 
             _mode = Mode.Add;
         }
-        private void btnEdit_Click(object sender, EventArgs e) {
+        private void BtnEdit_Click(object sender, EventArgs e) {
             btnAdd.Enabled = btnEdit.Enabled = false;
             grpProduct.Enabled = true;
 
@@ -61,7 +61,7 @@ namespace SimpleRetail.Forms {
 
             _mode = Mode.Edit;
         }
-        private void btnDelete_Click(object sender, EventArgs e) {
+        private void BtnDelete_Click(object sender, EventArgs e) {
             var result =
                 MessageBox.Show("Are you sure?", "Confirmastion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -71,7 +71,7 @@ namespace SimpleRetail.Forms {
             LoadProducts();
         }
         private void BtnSave_Click(object sender, EventArgs e) {
-            if (!Validate()) return;
+            if (!ValidateProduct()) return;
 
             if (_mode == Mode.Add) AddProduct();
             if (_mode == Mode.Edit) EditProduct();
@@ -129,7 +129,7 @@ namespace SimpleRetail.Forms {
             _db.Products.Remove(_db.Products.Find(id));
             _db.SaveChanges();
         }
-        private bool Validate() {
+        private bool ValidateProduct() {
             var errors = string.Empty;
 
             if (txtName.Text == string.Empty) errors += "Name field is required\n";
