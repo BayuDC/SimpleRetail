@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using SimpleRetail.Models;
 
-namespace SimpleRetail.Forms {
+namespace SimpleRetail.Forms.Data {
     public partial class ProductForm : Form {
 
         private readonly Database _db;

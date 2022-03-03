@@ -1,5 +1,5 @@
 ﻿
-namespace SimpleRetail.Forms {
+namespace SimpleRetail.Forms.Data {
     partial class ProductForm {
         /// <summary>
         /// Required designer variable.
