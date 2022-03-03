@@ -24,41 +24,41 @@ namespace SimpleRetail.Forms.Data {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.grpProduct = new System.Windows.Forms.GroupBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
+            this.grpEmployee = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            this.grpProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            this.grpEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvProduct
+            // dgvEmployee
             // 
-            this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Location = new System.Drawing.Point(12, 12);
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.RowHeadersVisible = false;
-            this.dgvProduct.RowTemplate.Height = 25;
-            this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(454, 491);
-            this.dgvProduct.TabIndex = 2;
+            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.Location = new System.Drawing.Point(12, 12);
+            this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.RowHeadersVisible = false;
+            this.dgvEmployee.RowTemplate.Height = 25;
+            this.dgvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmployee.Size = new System.Drawing.Size(454, 491);
+            this.dgvEmployee.TabIndex = 2;
             // 
             // btnDelete
             // 
@@ -90,34 +90,61 @@ namespace SimpleRetail.Forms.Data {
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // grpProduct
+            // grpEmployee
             // 
-            this.grpProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpProduct.Controls.Add(this.btnCancel);
-            this.grpProduct.Controls.Add(this.btnSave);
-            this.grpProduct.Controls.Add(this.textBox1);
-            this.grpProduct.Controls.Add(this.txtStock);
-            this.grpProduct.Controls.Add(this.label5);
-            this.grpProduct.Controls.Add(this.label4);
-            this.grpProduct.Controls.Add(this.txtPrice);
-            this.grpProduct.Controls.Add(this.txtName);
-            this.grpProduct.Controls.Add(this.label3);
-            this.grpProduct.Controls.Add(this.txtId);
-            this.grpProduct.Controls.Add(this.label1);
-            this.grpProduct.Controls.Add(this.label2);
-            this.grpProduct.Location = new System.Drawing.Point(472, 12);
-            this.grpProduct.Name = "grpProduct";
-            this.grpProduct.Size = new System.Drawing.Size(300, 264);
-            this.grpProduct.TabIndex = 8;
-            this.grpProduct.TabStop = false;
-            this.grpProduct.Text = "Employee";
+            this.grpEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpEmployee.Controls.Add(this.btnCancel);
+            this.grpEmployee.Controls.Add(this.btnSave);
+            this.grpEmployee.Controls.Add(this.txtPassword);
+            this.grpEmployee.Controls.Add(this.txtPhone);
+            this.grpEmployee.Controls.Add(this.label5);
+            this.grpEmployee.Controls.Add(this.label4);
+            this.grpEmployee.Controls.Add(this.txtEmail);
+            this.grpEmployee.Controls.Add(this.txtName);
+            this.grpEmployee.Controls.Add(this.label3);
+            this.grpEmployee.Controls.Add(this.txtId);
+            this.grpEmployee.Controls.Add(this.label1);
+            this.grpEmployee.Controls.Add(this.label2);
+            this.grpEmployee.Location = new System.Drawing.Point(472, 12);
+            this.grpEmployee.Name = "grpEmployee";
+            this.grpEmployee.Size = new System.Drawing.Size(300, 264);
+            this.grpEmployee.TabIndex = 8;
+            this.grpEmployee.TabStop = false;
+            this.grpEmployee.Text = "Employee";
             // 
-            // txtStock
+            // btnCancel
             // 
-            this.txtStock.Location = new System.Drawing.Point(94, 148);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(200, 29);
-            this.txtStock.TabIndex = 8;
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.Location = new System.Drawing.Point(219, 218);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 40);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSave.Location = new System.Drawing.Point(6, 218);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 40);
+            this.btnSave.TabIndex = 12;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(94, 183);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(200, 29);
+            this.txtPassword.TabIndex = 9;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(94, 148);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(200, 29);
+            this.txtPhone.TabIndex = 8;
             // 
             // label5
             // 
@@ -137,12 +164,12 @@ namespace SimpleRetail.Forms.Data {
             this.label4.TabIndex = 3;
             this.label4.Text = "Phone";
             // 
-            // txtPrice
+            // txtEmail
             // 
-            this.txtPrice.Location = new System.Drawing.Point(94, 113);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(200, 29);
-            this.txtPrice.TabIndex = 7;
+            this.txtEmail.Location = new System.Drawing.Point(94, 113);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 29);
+            this.txtEmail.TabIndex = 7;
             // 
             // txtName
             // 
@@ -186,71 +213,44 @@ namespace SimpleRetail.Forms.Data {
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(94, 183);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 29);
-            this.textBox1.TabIndex = 9;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancel.Location = new System.Drawing.Point(219, 218);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 40);
-            this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSave.Location = new System.Drawing.Point(6, 218);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 40);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.grpProduct);
+            this.Controls.Add(this.grpEmployee);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvProduct);
+            this.Controls.Add(this.dgvEmployee);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeForm";
             this.Text = "Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            this.grpProduct.ResumeLayout(false);
-            this.grpProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            this.grpEmployee.ResumeLayout(false);
+            this.grpEmployee.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.DataGridView dgvEmployee;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.GroupBox grpProduct;
-        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.GroupBox grpEmployee;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
     }
