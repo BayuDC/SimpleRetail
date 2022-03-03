@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 using SimpleRetail.Models;
 
 namespace SimpleRetail.Forms.Data {
@@ -64,6 +66,8 @@ namespace SimpleRetail.Forms.Data {
         }
 
         private void BtnSave_Click(object sender, EventArgs e) {
+            if (!ValidateEmployee()) return;
+
             if (_mode == Mode.Add) AddEMployee();
             if (_mode == Mode.Edit) EditEmployee();
             if (_mode == Mode.None) return;
@@ -111,6 +115,46 @@ namespace SimpleRetail.Forms.Data {
 
             _db.Employees.Remove(_db.Employees.Find(id));
             _db.SaveChanges();
+        }
+        private bool ValidateEmployee() {
+            var errors = string.Empty;
+
+            if (txtName.Text == string.Empty) errors += "Name field is required\n";
+
+            if (txtEmail.Text == string.Empty) errors += "Email field is required\n";
+            else if (!IsValidEmail(txtEmail.Text)) errors += "Invalid email format\n";
+
+            if (txtPhone.Text == string.Empty) errors += "Phone field is required\n";
+            else if (!IsValidPhone(txtPhone.Text)) errors += "Invalid phone number format\n";
+
+            if (txtPassword.Text == string.Empty) errors += "Password field is required\n";
+            else if (!Regex.IsMatch(txtPassword.Text, @"[a-zA-Z]") || !Regex.IsMatch(txtPassword.Text, @"[0-9]"))
+                errors += "Password must contain letters and numbers";
+
+            if (errors != string.Empty) {
+                MessageBox.Show(errors, "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+        private bool IsValidEmail(string email) {
+            try {
+                var trimmedEmail = email.Trim();
+                if (trimmedEmail.EndsWith('.')) return false;
+
+                var addr = new MailAddress(email);
+                if (addr.Address != trimmedEmail) return false;
+
+                return true;
+            } catch {
+                return false;
+            }
+        }
+        private bool IsValidPhone(string phone) {
+            var trimmedPhone = Regex.Replace(phone, @"^\(|\)|\s$", string.Empty);
+
+            return Regex.IsMatch(trimmedPhone, @"^\+?[0-9]{5,15}$");
         }
     }
 }
