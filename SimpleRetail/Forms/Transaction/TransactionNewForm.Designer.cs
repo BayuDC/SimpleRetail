@@ -149,6 +149,7 @@ namespace SimpleRetail.Forms.Transaction {
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransactionNewForm";
             this.Text = "New Transaction";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransactionNewForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

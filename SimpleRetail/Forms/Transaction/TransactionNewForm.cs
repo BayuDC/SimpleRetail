@@ -13,8 +13,18 @@ namespace SimpleRetail.Forms.Transaction {
             _db = db;
         }
 
-        private void BtnBrowse_Click(object sender, EventArgs e) {
-            _browseProductsFrom = (BrowseProductsFrom)MainForm.ShowForm(_browseProductsFrom, new BrowseProductsFrom(_db));
+        private void TransactionNewForm_FormClosing(object sender, FormClosingEventArgs e) {
+            _browseProductsFrom.Close();
         }
+        private void BtnBrowse_Click(object sender, EventArgs e) {
+            _browseProductsFrom = (BrowseProductsFrom)
+                MainForm.ShowForm(_browseProductsFrom, new BrowseProductsFrom(_db) {
+                    SelectProduct = id => {
+                        txtProductId.Text = id;
+                        Focus();
+                    }
+                });
+        }
+
     }
 }
