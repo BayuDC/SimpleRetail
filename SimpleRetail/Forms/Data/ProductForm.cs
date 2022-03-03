@@ -62,12 +62,16 @@ namespace SimpleRetail.Forms.Data {
             _mode = Mode.Edit;
         }
         private void BtnDelete_Click(object sender, EventArgs e) {
-            var result =
-                MessageBox.Show("Are you sure?", "Confirmastion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var id = dgvProduct.SelectedRows[0].Cells[0].Value.ToString();
+            var product = _db.Products.Find(id);
+
+            var result = MessageBox.Show(
+                $"Are you sure you want to delete product {product.Name} with the Id of {product.Id}",
+                "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No) return;
 
-            DeleteProduct();
+            DeleteProduct(product);
             LoadProducts();
         }
         private void BtnSave_Click(object sender, EventArgs e) {
@@ -123,10 +127,8 @@ namespace SimpleRetail.Forms.Data {
             _db.Products.Update(product);
             _db.SaveChanges();
         }
-        private void DeleteProduct() {
-            var id = dgvProduct.SelectedRows[0].Cells[0].Value.ToString();
-
-            _db.Products.Remove(_db.Products.Find(id));
+        private void DeleteProduct(Product product) {
+            _db.Products.Remove(product);
             _db.SaveChanges();
         }
         private bool ValidateProduct() {

@@ -56,12 +56,16 @@ namespace SimpleRetail.Forms.Data {
             _mode = Mode.Edit;
         }
         private void BtnDelete_Click(object sender, EventArgs e) {
-            var result =
-                MessageBox.Show("Are you sure?", "Confirmastion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var id = dgvEmployee.SelectedRows[0].Cells[0].Value.ToString();
+            var employee = _db.Employees.Find(id);
+
+            var result = MessageBox.Show(
+                $"Are you sure you want to delete employee {employee.Name} with the Id of {employee.Id}",
+                "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No) return;
 
-            DeleteEmployee();
+            DeleteEmployee(employee);
             LoadEmployees();
         }
 
@@ -110,10 +114,8 @@ namespace SimpleRetail.Forms.Data {
 
             _db.SaveChanges();
         }
-        private void DeleteEmployee() {
-            var id = dgvEmployee.SelectedRows[0].Cells[0].Value.ToString();
-
-            _db.Employees.Remove(_db.Employees.Find(id));
+        private void DeleteEmployee(Employee employee) {
+            _db.Employees.Remove(employee);
             _db.SaveChanges();
         }
         private bool ValidateEmployee() {

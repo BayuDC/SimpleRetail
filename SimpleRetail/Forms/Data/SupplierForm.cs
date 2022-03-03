@@ -56,12 +56,16 @@ namespace SimpleRetail.Forms.Data {
         }
 
         private void BtnDelete_Click(object sender, EventArgs e) {
-            var result =
-                MessageBox.Show("Are you sure?", "Confirmastion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var id = dgvSupplier.SelectedRows[0].Cells[0].Value.ToString();
+            var supplier = _db.Suppliers.Find(id);
+
+            var result = MessageBox.Show(
+                $"Are you sure you want to delete supplier {supplier.Name} with the Id of {supplier.Id}",
+                "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No) return;
 
-            DeleteSupplier();
+            DeleteSupplier(supplier);
             LoadSuppliers();
         }
 
@@ -108,10 +112,8 @@ namespace SimpleRetail.Forms.Data {
 
             _db.SaveChanges();
         }
-        private void DeleteSupplier() {
-            var id = dgvSupplier.SelectedRows[0].Cells[0].Value.ToString();
-
-            _db.Suppliers.Remove(_db.Suppliers.Find(id));
+        private void DeleteSupplier(Supplier supplier) {
+            _db.Suppliers.Remove(supplier);
             _db.SaveChanges();
         }
         private bool ValidateSupplier() {
