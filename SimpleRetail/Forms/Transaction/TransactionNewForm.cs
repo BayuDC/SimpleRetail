@@ -14,7 +14,7 @@ namespace SimpleRetail.Forms.Transaction {
         }
 
         private void BtnBrowse_Click(object sender, EventArgs e) {
-            MainForm.ShowForm(_browseProductsFrom, new BrowseProductsFrom(_db));
+            _browseProductsFrom = (BrowseProductsFrom)MainForm.ShowForm(_browseProductsFrom, new BrowseProductsFrom(_db));
         }
     }
 }

@@ -19,7 +19,7 @@ namespace SimpleRetail.Forms {
             _db = db;
         }
 
-        public static void ShowForm(Form form, Form freshForm) {
+        public static Form ShowForm(Form form, Form freshForm) {
             if (form == null || form.IsDisposed) {
                 form = freshForm;
                 form.Show();
@@ -30,6 +30,8 @@ namespace SimpleRetail.Forms {
             if (form.WindowState == FormWindowState.Minimized) {
                 form.WindowState = FormWindowState.Normal;
             }
+
+            return form;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -48,19 +50,19 @@ namespace SimpleRetail.Forms {
         }
 
         private void ProductToolStripMenuItem_Click(object sender, EventArgs e) {
-            ShowForm(_produtctForm, new ProductForm(_db));
+            _produtctForm = (ProductForm)ShowForm(_produtctForm, new ProductForm(_db));
         }
 
         private void EmployeeToolStripMenuItem_Click(object sender, EventArgs e) {
-            ShowForm(_employeeForm, new EmployeeForm(_db));
+            _employeeForm = (EmployeeForm)ShowForm(_employeeForm, new EmployeeForm(_db));
         }
 
         private void SupplierToolStripMenuItem_Click(object sender, EventArgs e) {
-            ShowForm(_produtctForm, new SupplierForm(_db));
+            _supplierForm = (SupplierForm)ShowForm(_supplierForm, new SupplierForm(_db));
         }
 
         private void NewTransactionToolStripMenuItem_Click(object sender, EventArgs e) {
-            ShowForm(_transactionNewForm, new TransactionNewForm(_db));
+            _transactionNewForm = (TransactionNewForm)ShowForm(_transactionNewForm, new TransactionNewForm(_db));
         }
     }
 }
