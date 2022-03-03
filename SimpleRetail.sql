@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [SimpleRetail]    Script Date: 02/03/2022 12:00:07 ******/
+/****** Object:  Database [SimpleRetail]    Script Date: 03/03/2022 19:55:12 ******/
 CREATE DATABASE [SimpleRetail]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [SimpleRetail] SET QUERY_STORE = OFF
 GO
 USE [SimpleRetail]
 GO
-/****** Object:  Table [dbo].[Employees]    Script Date: 02/03/2022 12:00:07 ******/
+/****** Object:  Table [dbo].[Employees]    Script Date: 03/03/2022 19:55:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -102,7 +102,7 @@ GO
 INSERT INTO [dbo].[Employees] (Id, Name, Email, Phone, Password)
 VALUES ('E0001', 'Admin', 'admin@localhost', '+6281234567890', 'admin0')
 GO
-/****** Object:  Table [dbo].[Products]    Script Date: 02/03/2022 12:00:07 ******/
+/****** Object:  Table [dbo].[Products]    Script Date: 03/03/2022 19:55:13 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -119,7 +119,7 @@ CREATE TABLE [dbo].[Products](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Suppliers]    Script Date: 02/03/2022 12:00:07 ******/
+/****** Object:  Table [dbo].[Suppliers]    Script Date: 03/03/2022 19:55:13 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -133,7 +133,7 @@ CREATE TABLE [dbo].[Suppliers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TransactionProducts]    Script Date: 02/03/2022 12:00:07 ******/
+/****** Object:  Table [dbo].[TransactionProducts]    Script Date: 03/03/2022 19:55:13 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,10 +142,15 @@ CREATE TABLE [dbo].[TransactionProducts](
 	[TransactionId] [varchar](5) NOT NULL,
 	[ProductId] [varchar](5) NOT NULL,
 	[Quantity] [int] NOT NULL,
-	[Price] [int] NOT NULL
+	[Price] [int] NOT NULL,
+ CONSTRAINT [PK_TransactionProducts] PRIMARY KEY CLUSTERED 
+(
+	[TransactionId] ASC,
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Transactions]    Script Date: 02/03/2022 12:00:07 ******/
+/****** Object:  Table [dbo].[Transactions]    Script Date: 03/03/2022 19:55:13 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

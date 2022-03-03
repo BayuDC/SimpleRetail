@@ -108,26 +108,24 @@ namespace SimpleRetail {
             });
 
             modelBuilder.Entity<TransactionProduct>(entity => {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.TransactionId, e.ProductId });
 
-                entity.Property(e => e.ProductId)
-                    .IsRequired()
+                entity.Property(e => e.TransactionId)
                     .HasMaxLength(5)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TransactionId)
-                    .IsRequired()
+                entity.Property(e => e.ProductId)
                     .HasMaxLength(5)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.Product)
-                    .WithMany()
+                    .WithMany(p => p.TransactionProducts)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TransactionProducts_Products");
 
                 entity.HasOne(d => d.Transaction)
-                    .WithMany()
+                    .WithMany(p => p.TransactionProducts)
                     .HasForeignKey(d => d.TransactionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TransactionProducts_Transactions");
