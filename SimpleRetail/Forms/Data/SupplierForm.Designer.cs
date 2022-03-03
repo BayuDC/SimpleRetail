@@ -63,6 +63,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnEdit
             // 
@@ -73,6 +74,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnAdd
             // 
@@ -83,6 +85,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // grpSupplier
             // 
@@ -99,6 +102,7 @@ namespace SimpleRetail.Forms.Data {
             this.grpSupplier.TabIndex = 11;
             this.grpSupplier.TabStop = false;
             this.grpSupplier.Text = "Supplier";
+            this.grpSupplier.EnabledChanged += new System.EventHandler(this.GrpSupplier_EnabledChanged);
             // 
             // btnCancel
             // 
@@ -109,6 +113,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnSave
             // 
@@ -119,6 +124,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // txtName
             // 
@@ -164,9 +170,10 @@ namespace SimpleRetail.Forms.Data {
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvSupplier);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SupplierForm";
             this.Text = "Supplier";
+            this.Load += new System.EventHandler(this.SupplierForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             this.grpSupplier.ResumeLayout(false);
             this.grpSupplier.PerformLayout();
