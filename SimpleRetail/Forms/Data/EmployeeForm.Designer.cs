@@ -69,6 +69,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnEdit
             // 
@@ -79,6 +80,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnAdd
             // 
@@ -89,6 +91,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // grpEmployee
             // 
@@ -111,6 +114,7 @@ namespace SimpleRetail.Forms.Data {
             this.grpEmployee.TabIndex = 8;
             this.grpEmployee.TabStop = false;
             this.grpEmployee.Text = "Employee";
+            this.grpEmployee.EnabledChanged += new System.EventHandler(this.GrpEmployee_EnabledChanged);
             // 
             // btnCancel
             // 
@@ -121,6 +125,7 @@ namespace SimpleRetail.Forms.Data {
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnSave
             // 
@@ -131,11 +136,13 @@ namespace SimpleRetail.Forms.Data {
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(94, 183);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(200, 29);
             this.txtPassword.TabIndex = 9;
             // 
@@ -227,6 +234,7 @@ namespace SimpleRetail.Forms.Data {
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeForm";
             this.Text = "Employee";
+            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             this.grpEmployee.ResumeLayout(false);
             this.grpEmployee.PerformLayout();
