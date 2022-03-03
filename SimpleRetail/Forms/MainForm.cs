@@ -19,7 +19,7 @@ namespace SimpleRetail.Forms {
             _db = db;
         }
 
-        private void ShowForm(Form form, Form freshForm) {
+        public static void ShowForm(Form form, Form freshForm) {
             if (form == null || form.IsDisposed) {
                 form = freshForm;
                 form.Show();

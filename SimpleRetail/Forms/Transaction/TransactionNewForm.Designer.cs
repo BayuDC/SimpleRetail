@@ -87,6 +87,7 @@ namespace SimpleRetail.Forms.Transaction {
             this.btnBrowse.TabIndex = 19;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // btnAdd
             // 
