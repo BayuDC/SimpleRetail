@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using SimpleRetail.Forms.Data;
+using SimpleRetail.Forms.Transaction;
 
 namespace SimpleRetail.Forms {
     public partial class MainForm : Form {
@@ -15,6 +11,7 @@ namespace SimpleRetail.Forms {
         private ProductForm _produtctForm;
         private EmployeeForm _employeeForm;
         private SupplierForm _supplierForm;
+        private TransactionNewForm _transactionNewForm;
 
         public MainForm(Database db, LoginForm loginForm) {
             InitializeComponent();
@@ -58,8 +55,12 @@ namespace SimpleRetail.Forms {
             ShowForm(_employeeForm, new EmployeeForm(_db));
         }
 
-        private void supplierToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void SupplierToolStripMenuItem_Click(object sender, EventArgs e) {
             ShowForm(_produtctForm, new SupplierForm(_db));
+        }
+
+        private void NewTransactionToolStripMenuItem_Click(object sender, EventArgs e) {
+            ShowForm(_transactionNewForm, new TransactionNewForm(_db));
         }
     }
 }
