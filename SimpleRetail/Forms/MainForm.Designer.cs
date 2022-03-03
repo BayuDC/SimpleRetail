@@ -122,6 +122,7 @@ namespace SimpleRetail.Forms {
             this.supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
             this.supplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supplierToolStripMenuItem.Text = "Supplier";
+            this.supplierToolStripMenuItem.Click += new System.EventHandler(this.supplierToolStripMenuItem_Click);
             // 
             // transactionToolStripMenuItem
             // 

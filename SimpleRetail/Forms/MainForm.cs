@@ -14,6 +14,8 @@ namespace SimpleRetail.Forms {
 
         private ProductForm _produtctForm;
         private EmployeeForm _employeeForm;
+        private SupplierForm _supplierForm;
+
         public MainForm(Database db, LoginForm loginForm) {
             InitializeComponent();
             _loginForm = loginForm;
@@ -54,6 +56,10 @@ namespace SimpleRetail.Forms {
 
         private void EmployeeToolStripMenuItem_Click(object sender, EventArgs e) {
             ShowForm(_employeeForm, new EmployeeForm(_db));
+        }
+
+        private void supplierToolStripMenuItem_Click(object sender, EventArgs e) {
+            ShowForm(_produtctForm, new SupplierForm(_db));
         }
     }
 }
