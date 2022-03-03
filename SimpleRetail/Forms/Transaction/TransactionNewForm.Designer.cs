@@ -28,12 +28,13 @@ namespace SimpleRetail.Forms.Transaction {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvTransaction = new System.Windows.Forms.DataGridView();
-            this.lblPrice = new System.Windows.Forms.Label();
             this.btnCheckout = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,13 +73,6 @@ namespace SimpleRetail.Forms.Transaction {
             this.label3.TabIndex = 18;
             this.label3.Text = "Total Rp.";
             // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(100, 65);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(200, 29);
-            this.txtQuantity.TabIndex = 20;
-            // 
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(306, 12);
@@ -88,27 +82,6 @@ namespace SimpleRetail.Forms.Transaction {
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(306, 58);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 40);
-            this.btnAdd.TabIndex = 21;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // dgvTransaction
-            // 
-            this.dgvTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(12, 104);
-            this.dgvTransaction.Name = "dgvTransaction";
-            this.dgvTransaction.RowTemplate.Height = 25;
-            this.dgvTransaction.Size = new System.Drawing.Size(760, 399);
-            this.dgvTransaction.TabIndex = 22;
             // 
             // lblPrice
             // 
@@ -120,15 +93,50 @@ namespace SimpleRetail.Forms.Transaction {
             this.lblPrice.TabIndex = 23;
             this.lblPrice.Text = "0";
             // 
+            // numQuantity
+            // 
+            this.numQuantity.Location = new System.Drawing.Point(100, 66);
+            this.numQuantity.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(200, 29);
+            this.numQuantity.TabIndex = 25;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(306, 58);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 40);
+            this.btnAdd.TabIndex = 26;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            // 
+            // dgvTransaction
+            // 
+            this.dgvTransaction.AllowUserToAddRows = false;
+            this.dgvTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransaction.Location = new System.Drawing.Point(12, 104);
+            this.dgvTransaction.Name = "dgvTransaction";
+            this.dgvTransaction.RowHeadersVisible = false;
+            this.dgvTransaction.RowTemplate.Height = 25;
+            this.dgvTransaction.Size = new System.Drawing.Size(760, 399);
+            this.dgvTransaction.TabIndex = 29;
+            // 
             // btnCheckout
             // 
             this.btnCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCheckout.Location = new System.Drawing.Point(672, 509);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(100, 40);
-            this.btnCheckout.TabIndex = 24;
+            this.btnCheckout.TabIndex = 30;
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.BtnCheckout_Click);
             // 
             // TransactionNewForm
             // 
@@ -136,10 +144,10 @@ namespace SimpleRetail.Forms.Transaction {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnCheckout);
-            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.dgvTransaction);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtQuantity);
+            this.Controls.Add(this.numQuantity);
+            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtProductId);
@@ -150,6 +158,8 @@ namespace SimpleRetail.Forms.Transaction {
             this.Name = "TransactionNewForm";
             this.Text = "New Transaction";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransactionNewForm_FormClosing);
+            this.Load += new System.EventHandler(this.TransactionNewForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,11 +171,11 @@ namespace SimpleRetail.Forms.Transaction {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.NumericUpDown numQuantity;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvTransaction;
-        private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Button btnCheckout;
     }
 }

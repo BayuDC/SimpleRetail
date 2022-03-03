@@ -29,5 +29,7 @@ namespace SimpleRetail.Forms.Transaction {
             SelectProduct(id);
             Close();
         }
+
+        // TODO realtime stock update
     }
 }

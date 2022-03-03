@@ -12,6 +12,8 @@ namespace SimpleRetail.Forms {
     public partial class LoginForm : Form {
 
         private readonly Database _db;
+        public static string EmployeeId { get; private set; }
+
         public LoginForm() {
             InitializeComponent();
             _db = new Database();
@@ -30,6 +32,7 @@ namespace SimpleRetail.Forms {
             }
 
             txtEmail.Text = txtPassword.Text = string.Empty;
+            EmployeeId = employee.Id;
 
             (new MainForm(_db, this)).Show();
             this.Hide();
