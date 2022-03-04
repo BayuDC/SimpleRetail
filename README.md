@@ -3,6 +3,8 @@
 An application that stores use to record product stock, transactions and report sales results.  
 Full documentation > [SimpleRetail.pdf](./SimpleRetail.pdf)
 
+[![Release](https://img.shields.io/github/v/release/BayuDC/SimpleRetail?style=for-the-badge)](https://github.com/BayuDC/SimpleRetail/releases/tag/v1.0.0)
+
 ## 🗂️ Database Structure
 
 ![DatabaseStucture](https://media.discordapp.net/attachments/946013429200723989/949245548282667008/SimpleRetailDb.png?width=1440&height=648)
