@@ -20,6 +20,8 @@ namespace SimpleRetail.Forms {
         }
 
         private void BtnLogin_Click(object sender, EventArgs e) {
+            if (!IsDatabaseLive()) return;
+
             var employee = _db.Employees.FirstOrDefault(e => e.Email == txtEmail.Text);
 
             if (employee == null) {
@@ -36,6 +38,14 @@ namespace SimpleRetail.Forms {
 
             (new MainForm(_db, this)).Show();
             this.Hide();
+        }
+
+        private bool IsDatabaseLive() {
+            if (!_db.Database.CanConnect()) {
+                MessageBox.Show("Can't connect to database", "Database is dead", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }
