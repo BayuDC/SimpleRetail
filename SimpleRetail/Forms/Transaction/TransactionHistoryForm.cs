@@ -9,10 +9,12 @@ using System.Windows.Forms;
 namespace SimpleRetail.Forms.Transaction {
     public partial class TransactionHistoryForm : Form {
         private readonly Database _db;
+        private readonly List<TransactionDetailForm> _transactionDetailForms;
         public TransactionHistoryForm(Database db) {
             InitializeComponent();
 
             _db = db;
+            _transactionDetailForms = new List<TransactionDetailForm>();
         }
 
         private void TransactionHistoryForm_Load(object sender, EventArgs e) {
@@ -35,11 +37,20 @@ namespace SimpleRetail.Forms.Transaction {
             });
         }
 
+        private void TransactionHistoryForm_FormClosing(object sender, FormClosingEventArgs e) {
+            foreach (var form in _transactionDetailForms) {
+                form.Close();
+            }
+        }
+
         private void DgvTransaction_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (e.ColumnIndex != 4) return;
             if (e.RowIndex < 0) return;
 
-            new TransactionDetailForm(_db, dgvTransaction[0, e.RowIndex].Value.ToString()).Show();
+            var form = new TransactionDetailForm(_db, dgvTransaction[0, e.RowIndex].Value.ToString());
+            form.Show();
+
+            _transactionDetailForms.Add(form);
         }
     }
 }

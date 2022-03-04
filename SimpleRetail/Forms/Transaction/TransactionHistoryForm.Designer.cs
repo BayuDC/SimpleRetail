@@ -54,6 +54,7 @@ namespace SimpleRetail.Forms.Transaction {
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransactionHistoryForm";
             this.Text = "Transaction History";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransactionHistoryForm_FormClosing);
             this.Load += new System.EventHandler(this.TransactionHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.ResumeLayout(false);
