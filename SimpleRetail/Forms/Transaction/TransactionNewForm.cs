@@ -105,7 +105,27 @@ namespace SimpleRetail.Forms.Transaction {
             lblPrice.Text = (currentPrice + price).ToString();
         }
         private void SaveTransactions() {
-            // save
+            var id = _db.Transactions.OrderByDescending(p => p).FirstOrDefault()?.Id[1..];
+            id = id == null ? "T0001" : $"T{(int.Parse(id) + 1):D4}";
+
+            _db.Transactions.Add(new Models.Transaction {
+                Id = id,
+                Date = DateTime.Now,
+                EmployeeId = LoginForm.EmployeeId
+            });
+
+            foreach(var transaction in _transactions) {
+                _db.TransactionProducts.Add(new TransactionProduct {
+                    TransactionId = id,
+                    ProductId = transaction.Key,
+                    Quantity = transaction.Value.Quantity,
+                    Price = transaction.Value.ProductPrice * transaction.Value.Quantity
+                });
+
+                _db.Products.Find(transaction.Key).Stock -= transaction.Value.Quantity;
+            }
+
+            _db.SaveChanges();
         }
         private bool ValidateTransactions() {
             if(_transactions.Count == 0) {
