@@ -41,6 +41,7 @@ namespace SimpleRetail.Forms.Transaction {
             this.dgvTransaction.RowTemplate.Height = 25;
             this.dgvTransaction.Size = new System.Drawing.Size(776, 426);
             this.dgvTransaction.TabIndex = 0;
+            this.dgvTransaction.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTransaction_CellContentClick);
             // 
             // TransactionHistoryForm
             // 
