@@ -34,6 +34,7 @@ namespace SimpleRetail.Forms.Transaction {
                         SelectProduct = (id, stock) => {
                             txtProductId.Text = id;
                             numQuantity.Maximum = stock;
+                            numQuantity.Enabled = true;
                             Focus();
                         }
                     }
@@ -42,8 +43,6 @@ namespace SimpleRetail.Forms.Transaction {
 
         private void BtnAdd_Click(object sender, EventArgs e) {
             var product = _db.Products.Find(txtProductId.Text);
-
-            if (!ValidateProduct(product)) return;
 
             AddTransaction(product);
 
@@ -73,6 +72,7 @@ namespace SimpleRetail.Forms.Transaction {
             txtProductId.Text = string.Empty;
             numQuantity.Value = 0;
             numQuantity.Maximum = int.MaxValue;
+            numQuantity.Enabled = false;
         }
         private void AddTransaction(Product product) {
             var quantity = (int)numQuantity.Value;
@@ -104,30 +104,14 @@ namespace SimpleRetail.Forms.Transaction {
             var currentPrice = int.Parse(lblPrice.Text);
             lblPrice.Text = (currentPrice + price).ToString();
         }
-        private bool ValidateProduct(Product product) {
-            if (txtProductId.Text == string.Empty) {
-                MessageBox.Show(
-                    "Product field is required", "Invalid Data",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning
-                );
-                return false;
-            }
-
-            if (product == null) {
-                MessageBox.Show(
-                    $"Product with Id {txtProductId.Text} is not found", "Invalid Data",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning
-                );
-                return false;
-            }
-
-            return true;
-        }
         private void SaveTransactions() {
             // save
         }
         private bool ValidateTransactions() {
-            // validate
+            if(_transactions.Count == 0) {
+                MessageBox.Show("Checkout at least one product");
+                return false;
+            }
 
             return true;
         }

@@ -42,6 +42,7 @@ namespace SimpleRetail.Forms.Transaction {
             // 
             this.txtProductId.Location = new System.Drawing.Point(100, 19);
             this.txtProductId.Name = "txtProductId";
+            this.txtProductId.ReadOnly = true;
             this.txtProductId.Size = new System.Drawing.Size(200, 29);
             this.txtProductId.TabIndex = 9;
             // 
@@ -95,6 +96,7 @@ namespace SimpleRetail.Forms.Transaction {
             // 
             // numQuantity
             // 
+            this.numQuantity.Enabled = false;
             this.numQuantity.Location = new System.Drawing.Point(100, 66);
             this.numQuantity.Maximum = new decimal(new int[] {
             2147483647,
