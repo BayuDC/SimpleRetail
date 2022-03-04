@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using SimpleRetail.Forms.Data;
 using SimpleRetail.Forms.Transaction;
+using SimpleRetail.Forms.Report;
 
 namespace SimpleRetail.Forms {
     public partial class MainForm : Form {
@@ -13,7 +14,7 @@ namespace SimpleRetail.Forms {
         private SupplierForm _supplierForm;
         private TransactionNewForm _transactionNewForm;
         private TransactionHistoryForm _transactionHistoryForm;
-
+        private DailyReportForm _dailyReportForm;
 
         public MainForm(Database db, LoginForm loginForm) {
             InitializeComponent();
@@ -69,6 +70,10 @@ namespace SimpleRetail.Forms {
 
         private void HistoryToolStripMenuItem_Click(object sender, EventArgs e) {
             _transactionHistoryForm = (TransactionHistoryForm)ShowForm(_transactionHistoryForm, new TransactionHistoryForm(_db));
+        }
+
+        private void DailyToolStripMenuItem_Click(object sender, EventArgs e) {
+            _dailyReportForm = (DailyReportForm)ShowForm(_dailyReportForm, new DailyReportForm(_db));
         }
     }
 }
