@@ -35,20 +35,23 @@ namespace SimpleRetail.Forms.Transaction {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(12, 12);
+            this.dgvTransaction.Location = new System.Drawing.Point(13, 13);
+            this.dgvTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.RowHeadersVisible = false;
             this.dgvTransaction.RowTemplate.Height = 25;
-            this.dgvTransaction.Size = new System.Drawing.Size(776, 426);
+            this.dgvTransaction.Size = new System.Drawing.Size(758, 535);
             this.dgvTransaction.TabIndex = 0;
             this.dgvTransaction.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTransaction_CellContentClick);
             // 
             // TransactionHistoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.dgvTransaction);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransactionHistoryForm";
             this.Text = "Transaction History";
             this.Load += new System.EventHandler(this.TransactionHistoryForm_Load);
