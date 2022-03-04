@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using SimpleRetail.Models;
 
 namespace SimpleRetail.Forms.Transaction {
     public partial class TransactionDetailForm : Form {
@@ -27,7 +26,7 @@ namespace SimpleRetail.Forms.Transaction {
                 on transactionProduct.ProductId equals product.Id
                 where (transactionProduct.TransactionId == transaction.Id)
                 select new {
-                    ProductId = product.Id,
+                    product.Id,
                     product.Name,
                     product.Price,
                     transactionProduct.Quantity,
@@ -35,11 +34,14 @@ namespace SimpleRetail.Forms.Transaction {
                 }
             ).ToList();
 
+            this.Text = "Transaction Detail for " + id;
+
             lblEmployee.Text = employee.Name;
             lblPrice.Text = transactions.Sum(t => t.Subtotal).ToString();
             lblDate.Text = transaction.Date.ToString("d");
 
             dgvTransaction.DataSource = transactions;
+            dgvTransaction.Columns[0].HeaderText = "Product Id";
         }
     }
 }
