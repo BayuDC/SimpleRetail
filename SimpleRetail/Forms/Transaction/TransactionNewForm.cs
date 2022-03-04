@@ -29,12 +29,15 @@ namespace SimpleRetail.Forms.Transaction {
         }
         private void BtnBrowse_Click(object sender, EventArgs e) {
             _browseProductsFrom = (BrowseProductsFrom)
-                MainForm.ShowForm(_browseProductsFrom, new BrowseProductsFrom(_db) {
-                    SelectProduct = id => {
-                        txtProductId.Text = id;
-                        Focus();
+                MainForm.ShowForm(_browseProductsFrom,
+                    new BrowseProductsFrom(_db, _transactions) {
+                        SelectProduct = (id, stock) => {
+                            txtProductId.Text = id;
+                            numQuantity.Maximum = stock;
+                            Focus();
+                        }
                     }
-                });
+                );
         }
 
         private void BtnAdd_Click(object sender, EventArgs e) {
@@ -69,6 +72,7 @@ namespace SimpleRetail.Forms.Transaction {
         private void ClearInput() {
             txtProductId.Text = string.Empty;
             numQuantity.Value = 0;
+            numQuantity.Maximum = int.MaxValue;
         }
         private void AddTransaction(Product product) {
             var quantity = (int)numQuantity.Value;
@@ -127,5 +131,5 @@ namespace SimpleRetail.Forms.Transaction {
 
             return true;
         }
-    }
+    } 
 }
