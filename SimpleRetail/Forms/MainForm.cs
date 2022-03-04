@@ -12,6 +12,8 @@ namespace SimpleRetail.Forms {
         private EmployeeForm _employeeForm;
         private SupplierForm _supplierForm;
         private TransactionNewForm _transactionNewForm;
+        private TransactionHistoryForm _transactionHistoryForm;
+
 
         public MainForm(Database db, LoginForm loginForm) {
             InitializeComponent();
@@ -63,6 +65,10 @@ namespace SimpleRetail.Forms {
 
         private void NewTransactionToolStripMenuItem_Click(object sender, EventArgs e) {
             _transactionNewForm = (TransactionNewForm)ShowForm(_transactionNewForm, new TransactionNewForm(_db));
+        }
+
+        private void HistoryToolStripMenuItem_Click(object sender, EventArgs e) {
+            _transactionHistoryForm = (TransactionHistoryForm)ShowForm(_transactionHistoryForm, new TransactionHistoryForm(_db));
         }
     }
 }
