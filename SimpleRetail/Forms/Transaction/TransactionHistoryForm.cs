@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Linq;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -41,7 +39,7 @@ namespace SimpleRetail.Forms.Transaction {
             if (e.ColumnIndex != 4) return;
             if (e.RowIndex < 0) return;
 
-            Debug.WriteLine(dgvTransaction[0, e.RowIndex].Value);
+            new TransactionDetailForm(_db, dgvTransaction[0, e.RowIndex].Value.ToString()).Show();
         }
     }
 }

@@ -43,12 +43,12 @@ namespace SimpleRetail.Forms.Transaction {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(12, 171);
+            this.dgvTransaction.Location = new System.Drawing.Point(12, 158);
             this.dgvTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.RowHeadersVisible = false;
             this.dgvTransaction.RowTemplate.Height = 25;
-            this.dgvTransaction.Size = new System.Drawing.Size(758, 377);
+            this.dgvTransaction.Size = new System.Drawing.Size(758, 390);
             this.dgvTransaction.TabIndex = 1;
             // 
             // label1
@@ -137,6 +137,7 @@ namespace SimpleRetail.Forms.Transaction {
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransactionDetailForm";
             this.Text = "Transaction Detail for [Id[";
+            this.Load += new System.EventHandler(this.TransactionDetailForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
